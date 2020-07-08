@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
-import { useSelector, useDispatch } from 'react-redux'
-
+import Data from './components/Data'
+import { Provider } from 'react-redux';
+import store from './redux/store'
 function App() {
-  const counter = useSelector(state => state.counter);
-  const dispatch = useDispatch();
+ 
   return (
     <div className="App">
-     <h1>{counter}</h1>
-     <input type="submit" value="INCREAMENT" onClick={()=> dispatch({type: 'INCREMENT'})} />
-     <input type="submit" value="DECREAMENT" onClick={()=> dispatch({type: 'DECREMENT'})} />
-
+      <Provider store={store}>
+        <Data />
+      </Provider>
+      
     </div>
   );
 }
