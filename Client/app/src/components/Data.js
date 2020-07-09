@@ -6,18 +6,20 @@ const Data = ({ userData, fetchData }) => {
     useEffect(() => {
         fetchData()
     },[]);
-    console.log(userData.user)
+    console.log(userData.user.Search ? 'asasd' : null)
     return userData.loading ? (
         <h2>loading</h2>
-    ) : userData.err ? (
-        <h2>{userData.err}</h2>
+    ) : userData.error ? (
+        <h2>{userData.error}</h2>
     ) : (
-        <div>
-            { userData &&
-                userData.user &&
-                <p>{userData.user.base}</p>
-            }
-        </div>
+                userData.user.Search ? 
+                <div>
+                     <p>{userData.user.Search[0].Title}</p>
+                </div>
+                :
+                null
+            
+        
     )
 
 }

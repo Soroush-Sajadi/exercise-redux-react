@@ -19,17 +19,17 @@ const fetchUserSuccess = user => {
     }
 }
 
-const fetchUserFailure = err => {
+const fetchUserFailure = error => {
     return {
         type: FETCH_USER_FAILUER,
-        payload: err
+        payload: error
     }
 }
 
-export const fetchData = () => {
+export const fetchData = (url) => {
     return (dispatch) => {
         dispatch(fetchUserRequest)
-        axios.get('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=67fddc841569cd4432f8dcefdae751c3')
+        axios.get(url)
             .then(res => {
                 const data = res.data
                 dispatch(fetchUserSuccess(data))

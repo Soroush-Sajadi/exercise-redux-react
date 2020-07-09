@@ -35,6 +35,7 @@ app.get('/api/pic/:serie/:season', async (req, res) => {
 
 app.get('/api/:movie', async (req, res) => {
     let movie = req.params.movie;
+    console.log(movie)
     if (/\s/.test(movie)) {
         movie = movie.replace(/\s/g, '%20');
     }
