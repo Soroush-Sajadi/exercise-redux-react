@@ -3,7 +3,7 @@ import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAILUER } from "./ty
 const initialState = {
     loading: false,
     user: [],
-    err: ''
+    error: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -17,13 +17,13 @@ const reducer = (state = initialState, action) => {
             return {
                 loading: false,
                 user: action.payload,
-                err: ''
+                error: ''
             }
         case FETCH_USER_FAILUER :
             return {
                 loading: false,
                 user: [],
-                err: action.payload
+                error: action.payload
             }
         default : return state
     }

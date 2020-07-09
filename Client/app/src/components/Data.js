@@ -6,13 +6,17 @@ const Data = ({ userData, fetchData }) => {
     useEffect(() => {
         fetchData()
     },[]);
+    console.log(userData.user)
     return userData.loading ? (
         <h2>loading</h2>
     ) : userData.err ? (
         <h2>{userData.err}</h2>
     ) : (
         <div>
-            {userData.user.map( item => item.coord )}
+            { userData &&
+                userData.user &&
+                <p>{userData.user.base}</p>
+            }
         </div>
     )
 

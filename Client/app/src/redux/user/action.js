@@ -34,7 +34,7 @@ export const fetchData = () => {
                 const data = res.data
                 dispatch(fetchUserSuccess(data))
             })
-            .then(error => {
+            .catch(error => {
                 const errMsg = error.message
                 dispatch(fetchUserFailure(errMsg))
             })
