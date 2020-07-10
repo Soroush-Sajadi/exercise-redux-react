@@ -14,9 +14,6 @@ const Header = () => {
                   <li>
                     <NavLink to="/Movies">Movies</NavLink>
                   </li>
-                  <li>
-                    <NavLink to="Series">Series</NavLink>
-                  </li>
                 </ul>
             </nav>   
         </header>

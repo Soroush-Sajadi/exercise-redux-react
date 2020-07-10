@@ -47,23 +47,9 @@ function Movie ({ userData, fetchData }) {
             :
               null
             }
-            
-            
         </div>
     )
 }
-{/* <div className="wrap">
-                <input className="input" type="text" placeholder="What is your favorite Movie" onChange={ this.handleChange } />
-                <input className="button" type="button" value="Search" onClick={this.handleClick} />
-                {this.state.data.length !== 0 ? (<div className="Serie-info">   
-                {this.state.data.Search.map((item, index) => 
-                <div key={index} className="episodes"> <img className="img" src={item.Poster}/> <div className="text">
-                    <p className="title">{item.Title}</p>  <p className="p">Released: {item.Year}</p> 
-                    <p className="p">Type: {item.Type}</p></div> <div>
-                    </div> 
-                </div>)}
-                </div>  ) : null} 
-            </div> */}
 
 const mapStateToProps = state => {
     return {
