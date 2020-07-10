@@ -23,20 +23,24 @@ function Movie ({ userData, fetchData }) {
         console.log(userData)
     }
     return  (
-        <div>
-            <input className="login" type="text" name="movie" value={input.movie} placeholder="Username" onChange={ handleChange } />
-            <input type="submit" vlaue="Search" onClick={search}/>
+        <div className="wrap">
+            <input className="input" type="text" name="movie" value={input.movie} placeholder="Username" onChange={ handleChange } />
+            <input className="button" type="submit" vlaue="Search" onClick={search}/>
             {userData.user.Search ?
-                <div>
+                <div className="Serie-info">
                     {userData.loading ? <h2>loading</h2>
                     :
                     <>
                         {userData.error ? <h2>{userData.error}</h2>
                         :
-                        <div>
-                            {userData.user.Search.map(item => item.Title)}
-                        </div>
-                        }
+                        (<div className="Serie-info">
+                        {userData.user.Search.map((item, index) => 
+                        <div key={index} className="episodes"> <img className="img" src={item.Poster}/> <div className="text">
+                            <p className="title">{item.Title}</p>  <p className="p">Released: {item.Year}</p> 
+                            <p className="p">Type: {item.Type}</p></div> 
+                        </div>)}
+                        </div>  )
+                        }  
                     </>
                     }
                 </div>
@@ -48,6 +52,18 @@ function Movie ({ userData, fetchData }) {
         </div>
     )
 }
+{/* <div className="wrap">
+                <input className="input" type="text" placeholder="What is your favorite Movie" onChange={ this.handleChange } />
+                <input className="button" type="button" value="Search" onClick={this.handleClick} />
+                {this.state.data.length !== 0 ? (<div className="Serie-info">   
+                {this.state.data.Search.map((item, index) => 
+                <div key={index} className="episodes"> <img className="img" src={item.Poster}/> <div className="text">
+                    <p className="title">{item.Title}</p>  <p className="p">Released: {item.Year}</p> 
+                    <p className="p">Type: {item.Type}</p></div> <div>
+                    </div> 
+                </div>)}
+                </div>  ) : null} 
+            </div> */}
 
 const mapStateToProps = state => {
     return {
